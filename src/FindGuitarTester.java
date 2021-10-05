@@ -9,8 +9,8 @@ public class FindGuitarTester {
         initialiseInventory(inventory);
 
         //what customer is looking for
-        Guitar whatLookingFor = new Guitar("", 0, "fender", "Stratocastor",
-                "electric", "Alder","Alder");
+        Guitar whatLookingFor = new Guitar("", 0, "Fender", "Stratocastor",
+                "Electric", "Alder","Alder");
 
         Guitar guitar = inventory.search(whatLookingFor);
         if (guitar !=null){
