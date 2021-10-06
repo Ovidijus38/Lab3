@@ -10,10 +10,9 @@ public class Inventory {
         guitars = new LinkedList();
     }
 
-    public void addGuitar(String serialNumber, double price, Builder builder, String model,
-                          Type type,  Wood backWood, Wood topWood){
+    public void addGuitar(String serialNumber, double price,GuitarSpec spec){
         //Guitar guitar = new Guitar(serialNumber, price, model, type, builder, backwood , topwood);
-        Guitar guitar = new Guitar(serialNumber,price,builder,model,type,backWood,topWood);
+        Guitar guitar = new Guitar(serialNumber,price,spec);
         guitars.add(guitar);
     }
 
@@ -27,31 +26,31 @@ public class Inventory {
         return null;
     }
 
-    public List search(Guitar searchGuitar) {
+    public List<Guitar> search(GuitarSpec searchGuitarSpec) {
 
-        List matchingGuitars = new LinkedList();
+        List matchingGuitars = new LinkedList<>();
 
         for (Iterator i = guitars.iterator(); i.hasNext(); ) {
+
             Guitar guitar = (Guitar) i.next();
-            //ignore serialNumber since it is unique
-            //ignore price since it is irrelevant
 
-            if (searchGuitar.getBuilder() !=guitar.getBuilder())
+
+            if (guitar.getSpec().getBuilder() !=searchGuitarSpec.getBuilder())
                 continue;
 
-            if (searchGuitar.getModel() !=guitar.getModel())
+            if (guitar.getSpec().getModel() !=searchGuitarSpec.getModel())
                 continue;
 
-            if (searchGuitar.getType() !=guitar.getType())
+            if (guitar.getSpec().getType() !=searchGuitarSpec.getType())
                 continue;
 
-            if (searchGuitar.getBackwood() !=guitar.getBackwood())
+            if (guitar.getSpec().getBackwood() !=searchGuitarSpec.getBackwood())
                 continue;
 
-            if (searchGuitar.getTopwood() !=guitar.getTopwood())
+            if (guitar.getSpec().getTopwood() !=searchGuitarSpec.getTopwood())
                 continue;
 
-            matchingGuitars.add(guitars);
+            matchingGuitars.add(guitar);
 
         }
         return matchingGuitars;

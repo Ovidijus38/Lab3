@@ -9,17 +9,15 @@ public class FindGuitarTester {
         initialiseInventory(inventory);
 
         //what customer is looking for
-        Guitar whatLookingFor = new Guitar("V00001", 1499.99, Builder.FENDER, "Stratocastor",
-                Type.ELECTRIC, Wood.ALDER,Wood.ALDER);
+        GuitarSpec whatLookingFor = new GuitarSpec(Builder.FENDER,"Stratocastor",Type.ACOUSTIC,Wood.ALDER,Wood.ALDER);
 
-        List matchingguitar = inventory.search(whatLookingFor);
+        List<Guitar>matchingguitar = inventory.search(whatLookingFor);
         if (!matchingguitar.isEmpty()){
 
-            for (Iterator i = matchingguitar.iterator(); i.hasNext(); ) {
-                Guitar guitar = (Guitar) i.next();
+            for(Guitar guitar : matchingguitar)
                 System.out.println("We have a few guitars:\n" + guitar.getSerialNumber());
             }
-        }
+
         else {
             System.out.println("Sorry, we have nothing for you.");
         }
@@ -27,21 +25,14 @@ public class FindGuitarTester {
 
     public static void initialiseInventory(Inventory inventory){
         //add guitars to the inventory
-        inventory.addGuitar("V00001",
-                1499.99,
-                Builder.FENDER,
-                "Stratocastor",
-                Type.ELECTRIC,
-                Wood.ALDER,
-                Wood.ALDER);
+        GuitarSpec gSpec1 = new GuitarSpec(Builder.FENDER,"Stratocastor",Type.ACOUSTIC,Wood.ALDER,Wood.ALDER);
+        GuitarSpec gSpec2 = new GuitarSpec(Builder.FENDER,"Stratocastor",Type.ELECTRIC,Wood.ALDER,Wood.ALDER);
 
-        inventory.addGuitar("V00002",
-                1699.99,
-                Builder.FENDER,
-                "Stratocastor",
-                Type.ELECTRIC,
-                Wood.ALDER,
-                Wood.ALDER);
 
+
+        inventory.addGuitar("v0001",1799.99,gSpec2);
+        inventory.addGuitar("v0002",1899.99,gSpec2);
+        inventory.addGuitar("v0003",1599.99,gSpec1);
+        inventory.addGuitar("v0004",1499.99,gSpec1);
     }
 }
