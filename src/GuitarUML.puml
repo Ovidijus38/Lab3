@@ -2,9 +2,45 @@
 'https://plantuml.com/class-diagram
 
 class Inventory{
-Guitars
+addInstrument(String , double, instrumentSpec)
+get(String):Instrument
+search(guitarSpec):Guitar
+search(MandolineSpec):Mandoline
 }
 
 class Guitar{
+serialNumber:String
+price:double
+}
+
+abstract Instrument{
+}
+
+class GuitarSpec{
+numStrings:int
 
 }
+
+class InstrumentSpec{
+model:String
+matches(InstrumentSpec): boolean
+}
+
+annotation Type{}
+annotation Wood{}
+annotation Builder{}
+annotation Style{}
+
+Inventory -- Instrument
+Instrument <|-- Guitar
+Instrument <|-- Mandoline
+Instrument o- InstrumentSpec
+InstrumentSpec -- GuitarSpec
+InstrumentSpec -- MandolineSpec
+InstrumentSpec -> Type
+InstrumentSpec --> Wood
+InstrumentSpec -> Builder
+MandolineSpec --> Style
+
+
+@enduml

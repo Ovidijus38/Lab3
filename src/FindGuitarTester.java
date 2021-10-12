@@ -26,7 +26,7 @@ public class FindGuitarTester {
     public static void initialiseInventory(Inventory inventory){
         //add guitars to the inventory
         GuitarSpec gSpec1 = new GuitarSpec(Builder.FENDER,"Stratocastor",Type.ACOUSTIC,6,Wood.ALDER,Wood.ALDER);
-        GuitarSpec gSpec2 = new GuitarSpec(Builder.FENDER,"Stratocastor",Type.ELECTRIC,6,Wood.ALDER,Wood.ALDER);
+        GuitarSpec gSpec2 = new GuitarSpec(Builder.FENDER,"Stratocastor",Type.ELECTRIC,8,Wood.ALDER,Wood.ALDER);
 
 
 
