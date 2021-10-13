@@ -4,43 +4,64 @@
 class Inventory{
 addInstrument(String , double, instrumentSpec)
 get(String):Instrument
-search(guitarSpec):Guitar
-search(MandolineSpec):Mandoline
+search(guitarSpec):Guitar[*]
+search(MandolineSpec):Mandoline[*]
 }
 
 class Guitar{
-serialNumber:String
-price:double
+}
+
+class Mandoline{
 }
 
 abstract Instrument{
+serialNumber:String
+price:Double
+getSerialNumber():String
+getPrice():double
+setPrice(float)
+getSpec():InstrumentSpec
 }
 
 class GuitarSpec{
 numStrings:int
+getNumStrings():int
+matches(GuitarSpec):boolean
+}
 
+class MandolineSpec{
+getStyle():Style
+matches(MandolineSpec): boolean
 }
 
 class InstrumentSpec{
 model:String
-matches(InstrumentSpec): boolean
+getBuilder():Builder
+getModel():String
+getType():Type
+getBackwood():Wood
+getTopwood():Wood
+matches(InstrumentSpec):boolean
 }
+
+
 
 annotation Type{}
 annotation Wood{}
 annotation Builder{}
 annotation Style{}
 
-Inventory -- Instrument
-Instrument <|-- Guitar
+Inventory "1" --> "many" Instrument
+Instrument "*" <|-- "1" Guitar
 Instrument <|-- Mandoline
-Instrument o- InstrumentSpec
+Instrument o- "1" InstrumentSpec
 InstrumentSpec -- GuitarSpec
 InstrumentSpec -- MandolineSpec
 InstrumentSpec -> Type
 InstrumentSpec --> Wood
 InstrumentSpec -> Builder
 MandolineSpec --> Style
+
 
 
 @enduml
