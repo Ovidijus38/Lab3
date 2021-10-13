@@ -17,7 +17,6 @@ public class Inventory {
     }
 
     public void addInstrument(String serialNumber, double price,InstrumentSpec spec){
-        //Guitar guitar = new Guitar(serialNumber, price, model, type, builder, backwood , topwood);
 
     }
 
