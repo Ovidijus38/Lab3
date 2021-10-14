@@ -1,12 +1,13 @@
 public enum Style {
+    A, F;
 
-    Aclass,Fclass;
-
-    public String toString() {
-        switch (this) {
-            case Aclass: return "A";
-            case Fclass: return "F";
-            default: return "BB";
+    public String toString()
+    {
+        switch (this)
+        {
+            case A: return "A Style";
+            case F: return "F Style";
+            default: return "A Style";
         }
     }
 }

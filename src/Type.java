@@ -1,16 +1,13 @@
 public enum Type {
-    ELECTRIC,ACOUSTIC,WOOD;
+    ACOUSTIC, ELECTRIC;
 
-
-    public String toString() {
-        switch (this){
-
-            case ELECTRIC: return "Electric";
+    public String toString()
+    {
+        switch (this)
+        {
             case ACOUSTIC: return "Acoustic";
-            case WOOD: return "Mahogany";
-            default: return "Electric";
-
+            case ELECTRIC: return "Electric";
+            default: return "Acoustic";
         }
-
     }
 }

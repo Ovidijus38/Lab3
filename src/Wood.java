@@ -1,15 +1,14 @@
 public enum Wood {
-    ALDER,CEDAR,MAHOGANY;
+    MAHOGANY,ALDER, CEDAR;
 
-    @Override
-    public String toString() {
-
-        switch (this){
-            case CEDAR:return "Cedar";
+    public String toString()
+    {
+        switch (this)
+        {
+            case CEDAR: return "Cedar";
+            case MAHOGANY: return "Mahogany";
             case ALDER: return "Alder";
-            case MAHOGANY:return "Mahogany";
-            default:return "Alder";
+            default: return "Cedar";
         }
     }
 }
-
